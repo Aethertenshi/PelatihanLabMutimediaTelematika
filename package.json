@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "description": "Simple HTTP server for serving index.html and assets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

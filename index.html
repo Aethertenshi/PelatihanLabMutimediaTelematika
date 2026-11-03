@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasan | Developer Journey & Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Google Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Devicon for Programming Language & Tool Logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  
+  <!-- Phosphor Icons for UI / Social icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Google Sans"', '"Google Sans Text"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Google Sans', 'Google Sans Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    /* Timeline continuous vertical line */
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      bottom: 28px;
+      left: 11px;
+      width: 4px;
+      background-color: #000000;
+      border-radius: 9999px;
+    }
+
+    .dark .timeline-container::before {
+      background-color: #ffffff;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-container::before {
+        left: 15px;
+        width: 5px;
+      }
+    }
+
+    /* Logo hover interaction */
+    .tech-badge {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tech-badge:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-200 antialiased selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-zinc-900 min-h-screen">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-zinc-950/80 border-b border-zinc-100 dark:border-zinc-900">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div></div>
+      
+      <div class="flex items-center gap-4">
+        <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+          <a href="#about" class="hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
+          <a href="#roadmap" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Roadmap</a>
+          <a href="#projects" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
+          <a href="#experience" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
+          <a href="#contact" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" aria-label="Toggle Theme" class="p-2 rounded-lg text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+          <i id="theme-icon" class="ph ph-moon text-xl"></i>
+        </button>
+
+        <a href="#contact" class="px-4 py-2 text-sm font-semibold bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 rounded-full hover:opacity-90 transition-opacity">
+          Get in touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Introduction Section -->
+  <section id="about" class="max-w-5xl mx-auto px-6 pt-20 pb-12">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-zinc-900 dark:text-white leading-snug sm:leading-tight tracking-normal mb-6 flex flex-col gap-1.5 sm:gap-2.5">
+        <span class="inline-flex items-baseline gap-2.5 sm:gap-3 flex-wrap">
+          <span>Hasan</span>
+          <span class="text-2xl sm:text-3xl md:text-4xl font-normal text-zinc-300 dark:text-zinc-700 tracking-tight select-none">/ Aether</span>
+        </span>
+        <span class="text-zinc-500 dark:text-zinc-400 font-bold text-2xl sm:text-3xl md:text-4xl">Full-Stack & Game Engineer</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+        I am a multidisciplinary engineer and DevOps architect with over a decade of hands-on experience across game engines, full-stack systems, and user-centric interfaces. Specializing in Lua, Python, C++, C#, TypeScript, and containerized Linux environments, I build high-performance backends and craft intuitive, modern digital experiences.
+      </p>
+
+      <!-- Core Programming Language Logos -->
+      <div class="mb-8">
+        <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-[15px] border border-zinc-200/80 dark:border-zinc-800/80">
+          <!-- HTML5 -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="HTML5">
+            <i class="devicon-html5-plain colored text-lg"></i>
+          </span>
+          <!-- CSS3 -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="CSS3">
+            <i class="devicon-css3-plain colored text-lg"></i>
+          </span>
+          <!-- JavaScript -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="JavaScript">
+            <i class="devicon-javascript-plain colored text-lg"></i>
+          </span>
+          <!-- TypeScript -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="TypeScript">
+            <i class="devicon-typescript-plain colored text-lg"></i>
+          </span>
+          <!-- C++ -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="C++">
+            <i class="devicon-cplusplus-plain colored text-lg"></i>
+          </span>
+          <!-- C# -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="C#">
+            <i class="devicon-csharp-plain colored text-lg"></i>
+          </span>
+          <!-- Lua -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Lua">
+            <i class="devicon-lua-plain colored text-lg"></i>
+          </span>
+          <!-- Dart -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Dart">
+            <i class="devicon-dart-plain colored text-lg"></i>
+          </span>
+          <!-- Python -->
+          <span class="tech-badge inline-flex items-center justify-center w-9 h-9 rounded-[10px] bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Python">
+            <i class="devicon-python-plain colored text-lg"></i>
+          </span>
+        </div>
+      </div>
+      
+      <!-- Social links -->
+      <div class="flex items-center gap-3 text-lg text-zinc-600 dark:text-zinc-400">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 inline-flex items-center justify-center rounded-[15px] border border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" title="GitHub">
+          <i class="ph ph-github-logo text-xl"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 inline-flex items-center justify-center rounded-[15px] border border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" title="LinkedIn">
+          <i class="ph ph-linkedin-logo text-xl"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 inline-flex items-center justify-center rounded-[15px] border border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" title="X / Twitter">
+          <i class="ph ph-x-logo text-xl"></i>
+        </a>
+        <a href="mailto:contact@example.com" class="w-11 h-11 inline-flex items-center justify-center rounded-[15px] border border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors" title="Email">
+          <i class="ph ph-envelope-simple text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap / Timeline Section (Exact style from reference) -->
+  <section id="roadmap" class="max-w-5xl mx-auto px-6 py-12">
+    <div class="mb-14">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-1">Roadmap</h2>
+      <p class="text-2xl font-black text-zinc-900 dark:text-white">Timeline & Milestones</p>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="relative timeline-container pl-10 md:pl-16 space-y-16 md:space-y-24">
+
+      <!-- ITEM 1: 2016 -->
+      <div class="relative group">
+        <!-- Node Dot -->
+        <div class="absolute -left-[39px] md:-left-[63px] top-2 md:top-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-black dark:bg-white flex items-center justify-center ring-4 ring-white dark:ring-zinc-950 shadow-md transition-transform group-hover:scale-110">
+          <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white dark:bg-zinc-950"></div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Year -->
+          <h3 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-zinc-950 dark:text-white leading-none">
+            2016
+          </h3>
+
+          <!-- Age -->
+          <p class="text-xl sm:text-2xl font-bold text-zinc-400 dark:text-zinc-500 tracking-tight">
+            9 Years Old
+          </p>
+
+          <!-- Small Programming Logos Grid -->
+          <div class="pt-1 pb-1">
+            <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+              <!-- HTML5 -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="HTML5">
+                <i class="devicon-html5-plain colored text-lg"></i>
+              </span>
+              <!-- CSS3 -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="CSS3">
+                <i class="devicon-css3-plain colored text-lg"></i>
+              </span>
+              <!-- PHP -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="PHP">
+                <i class="devicon-php-plain colored text-lg"></i>
+              </span>
+              <!-- XAMPP -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="XAMPP">
+                <svg class="w-4 h-4" fill="#FB7A24" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>XAMPP</title>
+                  <path d="M16.792,11.923c0.113,0.043,0.226,0.079,0.334,0.128c0.45,0.203,0.715,0.553,0.748,1.044 c0.041,0.634,0.044,1.271,0.002,1.905c-0.049,0.732-0.725,1.292-1.483,1.271c-0.735-0.021-1.369-0.62-1.397-1.341 c-0.017-0.441-0.003-0.884-0.006-1.326c-0.001-0.239-0.003-0.242-0.245-0.243c-1.363-0.001-2.726,0.008-4.089-0.003 c-0.888-0.007-1.421,0.482-1.471,1.46c-0.019,0.38-0.1,0.727-0.357,1.018c-0.397,0.451-0.898,0.601-1.472,0.466 c-0.554-0.131-0.867-0.522-1.035-1.048c-0.117-0.367-0.056-0.737,0.012-1.094c0.341-1.797,1.366-3.006,3.125-3.555 c0.357-0.112,0.731-0.166,1.105-0.166c0.94,0.001,1.881,0.001,2.821-0.001c0.128,0,0.257-0.012,0.385-0.021 c0.702-0.051,1.166-0.511,1.22-1.352c0.004-0.064,0-0.129,0.001-0.193c0.011-0.788,0.605-1.396,1.393-1.425 c0.787-0.029,1.438,0.527,1.493,1.318c0.076,1.083-0.265,2.046-0.913,2.907C16.903,11.751,16.819,11.816,16.792,11.923z M8.249,10.436c-0.258-0.008-0.571,0.018-0.882-0.035c-0.536-0.09-0.876-0.39-1.02-0.916C6.19,8.912,6.25,8.388,6.698,7.96 C7.154,7.526,7.694,7.4,8.285,7.645c0.52,0.216,0.859,0.731,0.89,1.293C9.2,9.382,9.178,9.828,9.182,10.272 c0.001,0.116-0.043,0.167-0.161,0.165C8.781,10.434,8.542,10.436,8.249,10.436z M21.682,0H2.318C1.102,0,0.116,0.986,0.116,2.202 v19.317c0,1.37,1.111,2.481,2.481,2.481h18.807c1.37,0,2.481-1.111,2.481-2.481V2.202C23.884,0.986,22.898,0,21.682,0z M20.125,12.473c0.519,0.804,0.733,1.69,0.677,2.657c-0.108,1.886-1.413,3.474-3.25,3.916c-2.585,0.623-4.566-0.923-5.233-2.794 c-0.109-0.304-0.16-0.622-0.224-0.985c-0.068,0.414-0.115,0.789-0.264,1.134c-0.697,1.617-1.884,2.603-3.665,2.799 c-2.104,0.232-4.048-1.067-4.632-3.084c-0.25-0.863-0.175-1.747-0.068-2.625c0.08-0.653,0.321-1.268,0.632-1.848 c0.057-0.106,0.057-0.184-0.01-0.285c-0.561-0.845-0.779-1.777-0.7-2.784C3.43,8.035,3.56,7.52,3.805,7.038 C4.52,5.626,6.09,4.427,8.193,4.626c1.849,0.175,3.562,1.77,3.83,3.564c0.013,0.09,0.039,0.178,0.068,0.311 c0.044-0.241,0.076-0.439,0.118-0.636c0.344-1.63,1.94-3.335,4.201-3.357c2.292-0.021,3.99,1.776,4.31,3.446 c0.17,0.888,0.089,1.776-0.103,2.663c-0.112,0.517-0.31,1.008-0.524,1.492C20.034,12.245,20.043,12.345,20.125,12.473z"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Description / Explaining text -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
+            I first became interested in programming when I was 9 years old. Having limited internet access at the time, I relied on borrowed books and video tutorials downloaded whenever an internet connection was available. During that period, I focused on understanding the inner workings of HTML and CSS, experimented with PHP, and used XAMPP as a local server environment to build plane ticket booking simulations and online store mockups.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 2: 2019 -->
+      <div class="relative group">
+        <!-- Node Dot -->
+        <div class="absolute -left-[39px] md:-left-[63px] top-2 md:top-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-black dark:bg-white flex items-center justify-center ring-4 ring-white dark:ring-zinc-950 shadow-md transition-transform group-hover:scale-110">
+          <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white dark:bg-zinc-950"></div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Year -->
+          <h3 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-zinc-950 dark:text-white leading-none">
+            2019
+          </h3>
+
+          <!-- Age -->
+          <p class="text-xl sm:text-2xl font-bold text-zinc-400 dark:text-zinc-500 tracking-tight">
+            12 Years Old
+          </p>
+
+          <!-- Small Programming Logos Grid -->
+          <div class="pt-1 pb-1">
+            <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+              <!-- Lua -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Lua">
+                <i class="devicon-lua-plain colored text-lg"></i>
+              </span>
+              <!-- Roblox Studio -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Roblox Studio">
+                <svg class="w-4 h-4" fill="#00A2FF" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Roblox Studio</title>
+                  <path d="M 13.936 15.356 L 1.826 12.112 L 0 18.93 L 18.928 24 L 21.608 14.01 L 14.79 12.18 L 13.936 15.356 Z M 5.072 0 L 2.394 9.992 L 9.21 11.822 L 10.064 8.644 L 22.174 11.89 L 24 5.072 L 5.072 0 Z"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Description / Explaining text -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
+            After spending several years learning how to write clean code, organize logic, and build familiarity with programming, I ventured into game development using Roblox Studio. I learned how Lua works and how it differs from JavaScript, HTML, PHP, and CSS. Because Roblox Studio tutorials were very limited at the time, especially in Indonesian, I learned primarily through reverse engineering existing open-source scripts, deconstructing every keyword and function, understanding data flow, and figuring out how to design clean architectures from scratch.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM: 2020 -->
+      <div class="relative group">
+        <!-- Node Dot -->
+        <div class="absolute -left-[39px] md:-left-[63px] top-2 md:top-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-black dark:bg-white flex items-center justify-center ring-4 ring-white dark:ring-zinc-950 shadow-md transition-transform group-hover:scale-110">
+          <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white dark:bg-zinc-950"></div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Year -->
+          <h3 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-zinc-950 dark:text-white leading-none">
+            2020
+          </h3>
+
+          <!-- Age -->
+          <p class="text-xl sm:text-2xl font-bold text-zinc-400 dark:text-zinc-500 tracking-tight">
+            13 Years Old
+          </p>
+
+          <!-- Small Programming Logos Grid -->
+          <div class="pt-1 pb-1">
+            <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+              <!-- Lua -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Lua">
+                <i class="devicon-lua-plain colored text-lg"></i>
+              </span>
+              <!-- Roblox Studio -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Roblox Studio">
+                <svg class="w-4 h-4" fill="#00A2FF" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Roblox Studio</title>
+                  <path d="M 13.936 15.356 L 1.826 12.112 L 0 18.93 L 18.928 24 L 21.608 14.01 L 14.79 12.18 L 13.936 15.356 Z M 5.072 0 L 2.394 9.992 L 9.21 11.822 L 10.064 8.644 L 22.174 11.89 L 24 5.072 L 5.072 0 Z"/>
+                </svg>
+              </span>
+              <!-- YouTube -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="YouTube">
+                <i class="ph ph-youtube-logo text-red-500 text-lg"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Description / Explaining text -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
+            At this point, I began sharing what I learned about Roblox Studio by creating YouTube tutorials. I wanted to ensure the knowledge I gained could benefit anyone looking to learn, especially given that Indonesian Roblox Studio tutorials were virtually nonexistent at the time. This motivated me to step up and create accessible learning content for the community.
+          </p>
+
+          <!-- YouTube Preview & Channel Link -->
+          <div class="pt-2 max-w-2xl space-y-4">
+            <div class="overflow-hidden rounded-[15px] border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900 group/img">
+              <img src="asset/rstud.webp" alt="Roblox Studio YouTube Tutorials" class="w-full object-cover transition-transform duration-300 group-hover/img:scale-[1.01]" />
+            </div>
+            <div>
+              <a href="https://www.youtube.com/@Aethertenshi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-[15px] bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 transition-colors">
+                <i class="ph ph-youtube-logo text-red-500 text-xl"></i>
+                <span>Visit YouTube Channel</span>
+                <i class="ph ph-arrow-up-right text-xs text-zinc-400"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 3: 2022 -->
+      <div class="relative group">
+        <!-- Node Dot -->
+        <div class="absolute -left-[39px] md:-left-[63px] top-2 md:top-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-black dark:bg-white flex items-center justify-center ring-4 ring-white dark:ring-zinc-950 shadow-md transition-transform group-hover:scale-110">
+          <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white dark:bg-zinc-950"></div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Year -->
+          <h3 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-zinc-950 dark:text-white leading-none">
+            2022
+          </h3>
+
+          <!-- Age -->
+          <p class="text-xl sm:text-2xl font-bold text-zinc-400 dark:text-zinc-500 tracking-tight">
+            15 Years Old
+          </p>
+
+          <!-- Small Programming Logos Grid -->
+          <div class="pt-1 pb-1">
+            <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+              <!-- Lua -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Lua">
+                <i class="devicon-lua-plain colored text-lg"></i>
+              </span>
+              <!-- Roblox Studio -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Roblox Studio">
+                <svg class="w-4 h-4" fill="#00A2FF" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Roblox Studio</title>
+                  <path d="M 13.936 15.356 L 1.826 12.112 L 0 18.93 L 18.928 24 L 21.608 14.01 L 14.79 12.18 L 13.936 15.356 Z M 5.072 0 L 2.394 9.992 L 9.21 11.822 L 10.064 8.644 L 22.174 11.89 L 24 5.072 L 5.072 0 Z"/>
+                </svg>
+              </span>
+              <!-- Community / Open Source -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Developer Community & Modules">
+                <i class="ph ph-users text-lg text-zinc-700 dark:text-zinc-300"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Description / Explaining text -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
+            During this period, I immersed myself in the wider developer community, learning from other engineers, observing how they tackled complex challenges, and studying their technical articles on system architecture. By 2026, my open-source work gained considerable traction and community attention. I started publishing custom modules and libraries designed to solve problems where existing tooling fell short. Here are a few of the most popular releases:
+          </p>
+
+          <!-- DevForum Preview & Released Modules -->
+          <div class="pt-2 max-w-2xl space-y-4">
+            <div class="overflow-hidden rounded-[15px] border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900 group/img">
+              <img src="asset/devf.webp" alt="Roblox Developer Forum Community Activity & Stats" class="w-full object-cover transition-transform duration-300 group-hover/img:scale-[1.01]" />
+            </div>
+            
+            <div class="flex flex-wrap gap-2.5">
+              <a href="https://devforum.roblox.com/t/tweenclientv3-2025-simplest-way-to-use-tween-in-client-side/2947823" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-[15px] bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 transition-colors">
+                <i class="ph ph-cube text-sm text-zinc-500"></i>
+                <span>TweenClientV3</span>
+                <i class="ph ph-arrow-up-right text-xs text-zinc-400"></i>
+              </a>
+              <a href="https://devforum.roblox.com/t/simpletext-module-that-sort-of-simplified-roblox-rich-text/2952049" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-[15px] bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 transition-colors">
+                <i class="ph ph-text-t text-sm text-zinc-500"></i>
+                <span>SimpleText</span>
+                <i class="ph ph-arrow-up-right text-xs text-zinc-400"></i>
+              </a>
+              <a href="https://devforum.roblox.com/t/simplified-datastoreservice-roblox-beginner-friendly/1748670" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-[15px] bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 transition-colors">
+                <i class="ph ph-database text-sm text-zinc-500"></i>
+                <span>Simplified DataStoreService</span>
+                <i class="ph ph-arrow-up-right text-xs text-zinc-400"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 4: 2024 -->
+      <div class="relative group">
+        <!-- Node Dot -->
+        <div class="absolute -left-[39px] md:-left-[63px] top-2 md:top-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-black dark:bg-white flex items-center justify-center ring-4 ring-white dark:ring-zinc-950 shadow-md transition-transform group-hover:scale-110">
+          <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white dark:bg-zinc-950"></div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Year -->
+          <h3 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-zinc-950 dark:text-white leading-none">
+            2024
+          </h3>
+
+          <!-- Age -->
+          <p class="text-xl sm:text-2xl font-bold text-zinc-400 dark:text-zinc-500 tracking-tight">
+            17 Years Old
+          </p>
+
+          <!-- Small Programming Logos Grid -->
+          <div class="pt-1 pb-1">
+            <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+              <!-- Next.js -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Next.js">
+                <i class="devicon-nextjs-original-wordmark colored text-lg"></i>
+              </span>
+              <!-- Rust -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Rust">
+                <i class="devicon-rust-plain text-zinc-900 dark:text-zinc-100 text-lg"></i>
+              </span>
+              <!-- Docker -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Docker">
+                <i class="devicon-docker-plain colored text-lg"></i>
+              </span>
+              <!-- Redis -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Redis">
+                <i class="devicon-redis-plain colored text-lg"></i>
+              </span>
+              <!-- GraphQL -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="GraphQL">
+                <i class="devicon-graphql-plain colored text-lg"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Description / Explaining text -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
+            Expanded into distributed systems, containerization with Docker, caching with Redis, and memory-safe systems software with Rust. Shipped real products used by thousands of active users.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 5: Present -->
+      <div class="relative group">
+        <!-- Node Dot -->
+        <div class="absolute -left-[39px] md:-left-[63px] top-2 md:top-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-black dark:bg-white flex items-center justify-center ring-4 ring-white dark:ring-zinc-950 shadow-md transition-transform group-hover:scale-110">
+          <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white dark:bg-zinc-950"></div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Year / Present -->
+          <div class="flex items-center gap-3">
+            <h3 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-zinc-950 dark:text-white leading-none">
+              Present
+            </h3>
+            <span class="px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200 rounded-full border border-zinc-200 dark:border-zinc-700">
+              Active
+            </span>
+          </div>
+
+          <!-- Age -->
+          <p class="text-xl sm:text-2xl font-bold text-zinc-400 dark:text-zinc-500 tracking-tight">
+            19 Years Old
+          </p>
+
+          <!-- Small Programming Logos Grid -->
+          <div class="pt-1 pb-1">
+            <div class="inline-flex flex-wrap items-center gap-2 p-1.5 bg-zinc-50 dark:bg-zinc-900/60 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+              <!-- Go -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Go / Golang">
+                <i class="devicon-go-original-wordmark colored text-lg"></i>
+              </span>
+              <!-- Rust -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Rust">
+                <i class="devicon-rust-plain text-zinc-900 dark:text-zinc-100 text-lg"></i>
+              </span>
+              <!-- TypeScript -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="TypeScript">
+                <i class="devicon-typescript-plain colored text-lg"></i>
+              </span>
+              <!-- Kubernetes -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="Kubernetes">
+                <i class="devicon-kubernetes-plain colored text-lg"></i>
+              </span>
+              <!-- AWS -->
+              <span class="tech-badge inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700" title="AWS">
+                <i class="devicon-amazonwebservices-plain-wordmark colored text-lg"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Description / Explaining text -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
+            Designing resilient microservices, exploring compiler design and AI agents, and crafting hyper-responsive web experiences. Constantly iterating, learning new architectures, and solving challenging engineering problems.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-zinc-100 dark:border-zinc-900">
+    <div class="mb-8">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-1">Portfolio Highlight</h2>
+      <p class="text-2xl font-black text-zinc-900 dark:text-white">Projects History</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4">
+      <!-- Orion Project Card (Disabled / Archived) -->
+      <div class="p-[15px] rounded-xl bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/70 dark:border-zinc-800/50 opacity-50 cursor-not-allowed select-none transition-opacity">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">Orion</h3>
+          <span class="text-xs sm:text-sm font-medium text-zinc-500 dark:text-zinc-400 whitespace-nowrap">Late 2021</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
+          Homemade custom game framework built to handle basic to core gameplay architecture—including server-to-server, server-to-client, client-to-server, and client-to-client communication, UI systems, and game state loops. Served as the foundation for most of my games.
+        </p>
+      </div>
+
+      <!-- Orion: Astrion Project Card (Disabled / Archived) -->
+      <div class="p-[15px] rounded-xl bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/70 dark:border-zinc-800/50 opacity-50 cursor-not-allowed select-none transition-opacity">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">Orion: Astrion</h3>
+          <span class="text-xs sm:text-sm font-medium text-zinc-500 dark:text-zinc-400 whitespace-nowrap">Early 2023</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
+          Second generation of the custom game framework, refining multiplayer networking protocols, event dispatch pipelines, and modular user interface components.
+        </p>
+      </div>
+
+      <!-- Orion: Epsilon Project Card (Disabled / Archived) -->
+      <div class="p-[15px] rounded-xl bg-zinc-100/50 dark:bg-zinc-900/30 border border-zinc-200/70 dark:border-zinc-800/50 opacity-50 cursor-not-allowed select-none transition-opacity">
+        <div class="flex items-center justify-between gap-4">
+          <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">Orion: Epsilon</h3>
+          <span class="text-xs sm:text-sm font-medium text-zinc-500 dark:text-zinc-400 whitespace-nowrap">Early 2024</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
+          Third iteration featuring optimized cross-server sync, streamlined UI state orchestration, and hardened communication netcode before transitioning toward modern architectures.
+        </p>
+      </div>
+
+      <!-- Project Reisan (Active) -->
+      <div class="p-[15px] rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all shadow-sm">
+        <div class="flex items-center justify-between gap-2 sm:gap-4">
+          <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+            <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">Project Reisan</h3>
+            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 text-[10px] sm:text-[11px] font-semibold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/60 rounded-full" title="This project is active, but currently not my main priority at the moment">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <span class="sm:hidden">Low Priority</span>
+              <span class="hidden sm:inline">Active · Low Priority</span>
+            </span>
+          </div>
+          <span class="text-[11px] sm:text-sm font-medium text-zinc-500 dark:text-zinc-400 whitespace-nowrap">Late 2024 – Present</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
+          A code-first game framework designed to streamline game development without relying on heavy, general-purpose game engines. Empowers developers with absolute low-level control over the engine internals, architecture, and performance tuning.
+        </p>
+        <div class="mt-3.5 pt-1 space-y-3">
+          <!-- Frameworks Section -->
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="h-px flex-1 bg-zinc-200/80 dark:bg-zinc-800"></div>
+              <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 whitespace-nowrap">Frameworks</span>
+              <div class="h-px flex-1 bg-zinc-200/80 dark:bg-zinc-800"></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <a href="https://github.com/Aethertenshi/ProjectReisan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors shadow-xs">
+                <i class="ph ph-github-logo text-sm"></i>
+                <span>ProjectReisan</span>
+                <i class="ph ph-arrow-up-right text-[10px] opacity-60"></i>
+              </a>
+              <a href="https://github.com/Aethertenshi/ArtFrameEXT" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors shadow-xs">
+                <i class="ph ph-github-logo text-sm"></i>
+                <span>ArtFrameEXT</span>
+                <i class="ph ph-arrow-up-right text-[10px] opacity-60"></i>
+              </a>
+              <a href="https://github.com/Aethertenshi/ArtFramework" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors shadow-xs">
+                <i class="ph ph-github-logo text-sm"></i>
+                <span>ArtFramework</span>
+                <i class="ph ph-arrow-up-right text-[10px] opacity-60"></i>
+              </a>
+              <a href="https://github.com/Aethertenshi/OpenRei-cs/tree/reistar" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors shadow-xs">
+                <i class="ph ph-github-logo text-sm"></i>
+                <span>OpenRei-cs</span>
+                <i class="ph ph-arrow-up-right text-[10px] opacity-60"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Games / Creations Section -->
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="h-px flex-1 bg-zinc-200/80 dark:bg-zinc-800"></div>
+              <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 whitespace-nowrap">Games / Creations</span>
+              <div class="h-px flex-1 bg-zinc-200/80 dark:bg-zinc-800"></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <a href="https://github.com/Aethertenshi/Playlist-stuck-on-repeat__Art2Framework" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors shadow-xs">
+                <i class="ph ph-game-controller text-sm"></i>
+                <span>Playlist-stuck-on-repeat</span>
+                <i class="ph ph-arrow-up-right text-[10px] opacity-60"></i>
+              </a>
+              <a href="https://github.com/Aethertenshi/Pulse-Matrix" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors shadow-xs">
+                <i class="ph ph-game-controller text-sm"></i>
+                <span>Pulse-Matrix</span>
+                <i class="ph ph-arrow-up-right text-[10px] opacity-60"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nullrion (WIP / Early Stage) -->
+      <div class="p-[15px] rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all shadow-sm">
+        <div class="flex items-center justify-between gap-2 sm:gap-4">
+          <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+            <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">Nullrion</h3>
+            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 text-[10px] sm:text-[11px] font-semibold text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/60 rounded-full" title="This is a new and heavily work-in-progress project at the moment — not currently usable">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+              <span class="sm:hidden">Heavy WIP</span>
+              <span class="hidden sm:inline">Heavy WIP · Not Yet Usable</span>
+            </span>
+          </div>
+          <span class="text-[11px] sm:text-sm font-medium text-zinc-500 dark:text-zinc-400 whitespace-nowrap">2026 – Present</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
+          In an ecosystem increasingly filled with automated and machine-generated code, Nullrion takes a deliberate craftsmanship-first approach. Built and maintained entirely through human engineering, clear mental models, and foundational computer science principles.
+        </p>
+        <div class="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-zinc-500 dark:text-zinc-400 bg-zinc-100/80 dark:bg-zinc-800/60 rounded-lg border border-zinc-200/80 dark:border-zinc-700/80">
+            <i class="ph ph-git-branch text-sm opacity-60"></i>
+            <span>This project currently doesn't have any GitHub repo</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience / Work History Section -->
+  <section id="experience" class="max-w-5xl mx-auto px-6 py-16 border-t border-zinc-100 dark:border-zinc-900">
+    <div class="mb-10">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-1">03 // Experience</h2>
+      <p class="text-2xl font-black text-zinc-900 dark:text-white">Work History</p>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+        Deploying robust gameplay modules, backend server databases, and optimizing script systems for large-scale Roblox studios and digital networks.
+      </p>
+    </div>
+
+    <!-- Stacked list with clean borders and hover effects -->
+    <div class="rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 overflow-hidden divide-y divide-zinc-200/80 dark:divide-zinc-800/80 shadow-xs">
+      
+      <!-- Nusantara Expedition Studio -->
+      <div class="p-6 md:p-8 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/40 transition-colors grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start relative group">
+        <div class="absolute top-0 left-0 w-0 h-[2px] bg-emerald-500 group-hover:w-full transition-all duration-500"></div>
+        
+        <div class="md:col-span-4 flex items-center gap-4">
+          <img src="https://tr.rbxcdn.com/180DAY-d1e3d4769f6eb4d77935f754abcbec91/150/150/Image/Webp/noFilter" class="w-12 h-12 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex-shrink-0" alt="Nusantara logo">
+          <div>
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">Nusantara Expedition</h3>
+            <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">2023 - Present</span>
+          </div>
+        </div>
+        <div class="md:col-span-3 flex flex-col gap-0.5">
+          <span class="text-xs sm:text-sm font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-bold">Lead Systems Developer</span>
+          <span class="text-xs text-zinc-500 dark:text-zinc-400">Roblox Frameworks</span>
+        </div>
+        <div class="md:col-span-5">
+          <ul class="space-y-1.5 text-sm text-zinc-700 dark:text-zinc-300 font-normal leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Engineered modular gameplay loop featuring unified shop mechanisms and dynamic item inventory panels.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Built interaction modules for secure claim mechanics and tent state ownership.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Integrated dashboards with backend leaderstats and data verification.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pasukan Ngabers Brebet -->
+      <div class="p-6 md:p-8 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/40 transition-colors grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start relative group">
+        <div class="absolute top-0 left-0 w-0 h-[2px] bg-emerald-500 group-hover:w-full transition-all duration-500"></div>
+        <div class="md:col-span-4 flex items-center gap-4">
+          <img src="https://tr.rbxcdn.com/180DAY-8c5be5b8c0d4a3c7cc68112f5ea41e77/512/512/Image/Webp/noFilter" class="w-12 h-12 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex-shrink-0" alt="Pasukan logo">
+          <div>
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">Pasukan Ngabers Brebet</h3>
+            <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">Systems Architect</span>
+          </div>
+        </div>
+        <div class="md:col-span-3 flex flex-col gap-0.5">
+          <span class="text-xs sm:text-sm font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-bold">Technical Engineer</span>
+          <span class="text-xs text-zinc-500 dark:text-zinc-400">Server Orchestration</span>
+        </div>
+        <div class="md:col-span-5">
+          <ul class="space-y-1.5 text-sm text-zinc-700 dark:text-zinc-300 font-normal leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Designed private server creation engines, teleport parameters, and join-by-ID systems.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Built real-time friend trackers and active session browsers inside Roblox servers.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Trains Of Indonesia -->
+      <div class="p-6 md:p-8 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/40 transition-colors grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start relative group">
+        <div class="absolute top-0 left-0 w-0 h-[2px] bg-emerald-500 group-hover:w-full transition-all duration-500"></div>
+        <div class="md:col-span-4 flex items-center gap-4">
+          <img src="https://tr.rbxcdn.com/180DAY-44d34b502ae568f1fc469290310bac8c/512/512/Image/Webp/noFilter" class="w-12 h-12 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex-shrink-0" alt="Trains logo">
+          <div>
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">Trains Of Indonesia</h3>
+            <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">Collaborator</span>
+          </div>
+        </div>
+        <div class="md:col-span-3 flex flex-col gap-0.5">
+          <span class="text-xs sm:text-sm font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-bold">Systems Collaborator</span>
+          <span class="text-xs text-zinc-500 dark:text-zinc-400">Physics & Tuning</span>
+        </div>
+        <div class="md:col-span-5">
+          <ul class="space-y-1.5 text-sm text-zinc-700 dark:text-zinc-300 font-normal leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Refactored critical core modules to improve server script execution frame-times.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-mono font-bold select-none">//</span>
+              <span>Resolved vehicle physics bottlenecks and rail constraint system bugs.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Additional Studios (3-Column Card Row) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80 dark:divide-zinc-800/80 bg-zinc-100/40 dark:bg-zinc-950/20">
+        <div class="p-6 md:p-8 flex flex-col gap-3 hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <img src="https://tr.rbxcdn.com/180DAY-29760d15f57e1dac4e662901d243c69b/512/512/Image/Webp/noFilter" class="w-10 h-10 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex-shrink-0" alt="Raysh">
+            <div>
+              <h4 class="text-sm font-bold text-zinc-900 dark:text-white">RayshStudios</h4>
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">Systems Maintainer</span>
+            </div>
+          </div>
+          <p class="text-zinc-600 dark:text-zinc-400 text-sm font-normal leading-relaxed">Developed tunnel environmental echoes and audio frameworks alongside custom map editors.</p>
+        </div>
+        
+        <div class="p-6 md:p-8 flex flex-col gap-3 hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <img src="https://tr.rbxcdn.com/180DAY-46ca62473561f52f6dd75d4f9ffe73a8/150/150/Image/Webp/noFilter" class="w-10 h-10 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex-shrink-0" alt="Ro-Indo">
+            <div>
+              <h4 class="text-sm font-bold text-zinc-900 dark:text-white">Ro-Indo Engineers</h4>
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">Lead Technical Eng</span>
+            </div>
+          </div>
+          <p class="text-zinc-600 dark:text-zinc-400 text-sm font-normal leading-relaxed">Optimized network ownership logic and rail constraints to fix physics glitches.</p>
+        </div>
+
+        <div class="p-6 md:p-8 flex flex-col gap-3 hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors">
+          <div class="flex items-center gap-3">
+            <img src="https://tr.rbxcdn.com/180DAY-0dcf10321cadb9e378a390dc86310183/150/150/Image/Webp/noFilter" class="w-10 h-10 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xs flex-shrink-0" alt="Dunia Kereta">
+            <div>
+              <h4 class="text-sm font-bold text-zinc-900 dark:text-white">Dunia Kereta Roblox</h4>
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">Lead Systems Eng</span>
+            </div>
+          </div>
+          <p class="text-zinc-600 dark:text-zinc-400 text-sm font-normal leading-relaxed">Engineered train station ticketing kiosks with detailed configuration panels and inventory logic.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact / Footer Section -->
+  <footer id="contact" class="max-w-5xl mx-auto px-6 py-16 border-t border-zinc-100 dark:border-zinc-900">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <h3 class="text-2xl font-black text-zinc-900 dark:text-white mb-2">Let's build something together</h3>
+        <p class="text-zinc-600 dark:text-zinc-400 text-sm">Open to interesting projects, engineering discussions, or collaborations.</p>
+      </div>
+      <a href="mailto:contact@example.com" class="px-6 py-3 font-semibold bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 rounded-full hover:scale-105 transition-transform inline-flex items-center gap-2 shadow-sm">
+        <i class="ph ph-paper-plane-tilt"></i>
+        <span>Get in touch</span>
+      </a>
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+      <p>© <span id="year">2026</span> Hasan. Built with HTML & Tailwind CSS.</p>
+      <div class="flex items-center gap-4">
+        <a href="#roadmap" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeIcon.classList.replace('ph-moon', 'ph-sun');
+    } else {
+      document.documentElement.classList.remove('dark');
+      themeIcon.classList.replace('ph-sun', 'ph-moon');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+        themeIcon.classList.replace('ph-sun', 'ph-moon');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+        themeIcon.classList.replace('ph-moon', 'ph-sun');
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
