@@ -1,0 +1,8 @@
+1. kalau misal user default di dark mode, menekan tombol dark mode sekali bakal membawa user ke light mode dan menekan lagi akan membawa ke dark mode. jadi menekan tombol dua kali bakal ngebawa user ke dark mode lagi.
+kegunaan classList.contains() -> untuk mengecek field "class" misal di <button class="class1 class2">, misal aku cari classList.contains("class1") maka akan return true
+kegunaan classList.add() -> untuk menambah value dalam class element, misal <button class="class1">, dan aku tambah classList.add("class4") maka hasil akhirnya <button class="class1 class4">
+dan kegunaan localStorage.setItem() -> untuk menyimpan sebuah data kecil di storage browser, mirip cookie namun size yang bisa disimpan lebih besar daripada cookie, localstorage bisa menyimpan lebih banyak hal daripada cookie
+
+2. pertama untuk class cursor-not-allowed di hapus karena itu yang membuat cursor jadi "X" jika cardnya di hover, lalu kalau mau di ganti bg nya jadi bg hijau hapus bg-zinc-* menjadi bg-green-* tergantung dengan besar kecilnya warna, dan untuk archived bisa di tambah cursor-not-allowed dan di tambah bg-zinc-100 dan text-zinc nya dibiarkan aja seperti itu
+
+3. keyword ::before pada tailwind itu akan membuat seperti strip pemisal "divider" di gap atau di celah celah antar div, misal ada button dan dikasih ::before, maka bentuknya bakal jadi "-----button" dan ::after itu seteleahnya, bentuknya mirip "button-----", dan position absolute artinya element itu ditaruh dimana aja bisa tanpa mengikuti ukuran "parent" elementnya, untuk mengubah posisi dari class absolute itu menggunakan class top, bottom. bahkan padding sama margin tidak bisa mengubah posisi dan ukuran dari element dengan absolute
